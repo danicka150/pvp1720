@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Killwirld — Анархия Minecraft</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Minecraftia", monospace;
+    background: linear-gradient(#001933, #003366);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  .border {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    background-size: cover;
+    z-index: 1;
+  }
+
+  .left {
+    left: 0;
+    background-image: url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5d/Dirt_side_texture.png");
+  }
+
+  .right {
+    right: 0;
+    background-image: url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5d/Dirt_side_texture.png");
+  }
+
+  header {
+    background: url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/09/Grass_Block_Top_Texture.png");
+    background-size: cover;
+    padding: 50px 0;
+    font-size: 60px;
+    font-weight: bold;
+    color: #00aaff;
+    text-shadow: 2px 2px 5px black;
+    animation: glow 2s infinite alternate;
+  }
+
+  @keyframes glow {
+    0% { text-shadow: 2px 2px 5px black, 0 0 5px #00aaff; }
+    100% { text-shadow: 2px 2px 5px black, 0 0 20px #00ffff; }
+  }
+
+  main {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    font-size: 22px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .copy-btn {
+    display: inline-block;
+    margin: 30px 0;
+    padding: 15px 30px;
+    font-size: 20px;
+    color: #001933;
+    background: #00aaff;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .copy-btn:hover {
+    background: #00ffff;
+    transform: scale(1.1);
+  }
+
+  footer {
+    position: relative;
+    z-index: 2;
+    margin-top: 100px;
+    padding: 20px;
+    color: #00ccff;
+    font-size: 14px;
+    text-shadow: 1px 1px 3px black;
+  }
+</style>
+</head>
+<body>
+  <div class="border left"></div>
+  <div class="border right"></div>
+
+  <header>KILLWIRLD</header>
+
+  <main>
+    <p>Очень хорошая анархия — новый сервер!</p>
+    <p>Свежий движ, молодняк, музыка и ламповая атмосфера 🎶</p>
+    <p>Сидим с бобром за столом 😎</p>
+    
+    <button class="copy-btn" onclick="copyIP()">Скопировать IP сервера</button>
+    <p>IP: <strong id="server-ip">Killworld_net.aternos.me</strong></p>
+  </main>
+
+  <footer>by danicka</footer>
+
+  <script>
+    function copyIP() {
+      const ip = document.getElementById('server-ip').innerText;
+      navigator.clipboard.writeText(ip).then(() => {
+        alert('IP сервера скопирован: ' + ip);
+      });
+    }
+  </script>
+</body>
+</html>
