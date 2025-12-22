@@ -48,11 +48,6 @@ h2{
     border-bottom:2px solid #ffd700;
     padding-bottom:5px;
 }
-.timer{
-    font-size:22px;
-    margin-top:10px;
-    color:#ffd700;
-}
 .donates{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -114,54 +109,59 @@ IP сервера: <b id="serverIp">pvp1720.aternos.me</b><br>
 </header>
 
 <section>
-<h2>Информация о вайпе</h2>
-<ul>
-<li><b>Текущая версия:</b> 1.16.2</li>
-<li><b>Дата вайпа:</b> 25 мая</li>
-<li><b>Тип вайпа:</b> полный (мир + экономика)</li>
-</ul>
-
-<div class="timer" id="wipeTimer">
-Загрузка таймера...
-</div>
-</section>
-
-<section>
 <h2>Донат-магазин</h2>
 
 <div class="donates">
 
+<!-- ПИОНЕР -->
 <div class="card">
-<img src="https://minecraft.wiki/images/Wooden_Sword_JE2.png">
+<img src="https://minecraft.wiki/images/Diamond_Hoe_JE3.png">
 <h3>ПИОНЕР</h3>
-<p>PvE донат для новичков</p>
+<p>
+PvE донат<br>
+Базовые команды<br>
+Подходит новичкам
+</p>
 <div class="price" data-rub="149 ₽" data-kzt="800 ₸" data-uah="69 ₴">149 ₽</div>
 <a class="buy" href="https://t.me/Qwertyy1207">Купить (РФ / KZ)</a>
 <a class="buy" href="https://t.me/Sobacha_afafaf">Купить (UA)</a>
 </div>
 
+<!-- ВОИН -->
 <div class="card">
 <img src="https://minecraft.wiki/images/Iron_Sword_JE3.png">
 <h3>ВОИН</h3>
-<p>PvP кит + шанс сферы</p>
+<p>
+PvP кит<br>
+Бонусы в бою
+</p>
 <div class="price" data-rub="299 ₽" data-kzt="1600 ₸" data-uah="139 ₴">299 ₽</div>
 <a class="buy" href="https://t.me/Qwertyy1207">Купить (РФ / KZ)</a>
 <a class="buy" href="https://t.me/Sobacha_afafaf">Купить (UA)</a>
 </div>
 
+<!-- МИСТИК -->
 <div class="card">
-<img src="https://minecraft.wiki/images/Diamond_Sword_JE3.png">
+<img src="https://minecraft.wiki/images/Enchanted_Diamond_Sword.gif">
 <h3>МИСТИК</h3>
-<p>Больше команд и китов</p>
+<p>
+Больше команд<br>
+Улучшенный кит
+</p>
 <div class="price" data-rub="449 ₽" data-kzt="2400 ₸" data-uah="209 ₴">449 ₽</div>
 <a class="buy" href="https://t.me/Qwertyy1207">Купить (РФ / KZ)</a>
 <a class="buy" href="https://t.me/Sobacha_afafaf">Купить (UA)</a>
 </div>
 
+<!-- БАРЫГА -->
 <div class="card">
-<img src="https://minecraft.wiki/images/Netherite_Sword_JE2.png">
+<img src="https://minecraft.wiki/images/Enchanted_Netherite_Sword.gif">
 <h3>БАРЫГА ⭐</h3>
-<p>Максимальные возможности</p>
+<p>
+Максимум команд<br>
+Лучшие киты<br>
+Топ-донат
+</p>
 <div class="price" data-rub="699 ₽" data-kzt="3800 ₸" data-uah="329 ₴">699 ₽</div>
 <a class="buy" href="https://t.me/Qwertyy1207">Купить (РФ / KZ)</a>
 <a class="buy" href="https://t.me/Sobacha_afafaf">Купить (UA)</a>
@@ -182,37 +182,12 @@ function setCurrency(type){
         if(type==='uah') p.textContent=p.dataset.uah;
     });
 }
+
 function copyIP(){
     const ip = document.getElementById("serverIp").textContent;
     navigator.clipboard.writeText(ip);
     alert("IP сервера скопирован: " + ip);
 }
-
-/* Таймер до 25 мая */
-const wipeDate = new Date(new Date().getFullYear(), 4, 25, 0, 0, 0);
-
-function updateTimer(){
-    const now = new Date();
-    const diff = wipeDate - now;
-    const timer = document.getElementById("wipeTimer");
-
-    if(diff <= 0){
-        timer.textContent = "🔥 ВАЙП НАЧАЛСЯ!";
-        return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    timer.textContent =
-        До вайпа осталось: ${days}д ${hours}ч ${minutes}м ${seconds}с;
-}
-
-setInterval(updateTimer, 1000);
-updateTimer();
 </script>
-
 </body>
 </html>
